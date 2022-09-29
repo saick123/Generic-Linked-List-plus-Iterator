@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "list.h"
+#include <string.h>
 
 void insere_inteiro(list * l, int n ){
     int * i = (int*)malloc(sizeof(int));
@@ -39,12 +40,11 @@ int main(void){
 
     ListIterator * it = l->iter(l);
 
-    for(resetListIterator(it); itsEndListIterator(it) == 0; advanceListIterator(it, 1 )){
-        printa_inteiro((int*)getListIterator(it));
-    }
-   
+    advanceListIterator(it, l->size(l) - 1);
     
+
     remove_inteiro(l, 1, compara_inteiro );
+    printa_inteiro(getListIterator(it));
     remove_inteiro(l, 3, compara_inteiro );
     remove_inteiro(l, 5, compara_inteiro );
     remove_inteiro(l, 2, compara_inteiro );
